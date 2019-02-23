@@ -1,7 +1,8 @@
-import { Table, Column, Model, PrimaryKey, AutoIncrement, HasMany } from "sequelize-typescript";
-import ParticipantToProject from "./participant_project.model";
-import { BelongsToMany } from "sequelize-typescript";
+import { Table, Column, Model, PrimaryKey, AutoIncrement, BelongsToMany } from "sequelize-typescript";
+import ParticipantProject from "./participant_project.model";
 import Participant from "./participant.model";
+import Challenge from "./challenge.model"
+import ChallengeProject from "./challenge_project.model";
 
 @Table({
    tableName: "project"
@@ -25,8 +26,11 @@ export default class Project extends Model<Project> {
    @Column
    git_url: string;
 
-   @BelongsToMany(()=>Participant, ()=>ParticipantToProject)
+   @BelongsToMany(()=>Participant, ()=>ParticipantProject)
    participants: Participant[];
+
+   @BelongsToMany(()=>Challenge, ()=>ChallengeProject)
+   challenges: Challenge[];
 
    // @HasMany(()=>Skill)
    // required_effort: Skill[];
