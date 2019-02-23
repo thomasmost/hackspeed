@@ -43,21 +43,28 @@ html {
             display: block;
             border-bottom: 2px solid black;
             height: 50px;
-            background-color: white; // #404E5C; // #a7b4c1;
+            background-color: $gunmetal; // #404E5C; // #a7b4c1;
+            a:first-child {
+               @include grid-column(1);
+               margin-left: 0;
+               * {
+                  margin-left: 0;
+               }
+               width: 50px;
+            }
             div:first-child {
                margin-left: 0;
                * {
                   margin-left: 0;
                }
                width: 50px;
-               float: left;
             }
             svg {
                left: 0;
                top: 0;
                height: 50px;
                * {
-                  fill: #420C11;
+                  fill: $hackspeed_blue;
                }
             }
             h1 {
