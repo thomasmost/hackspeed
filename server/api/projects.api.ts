@@ -24,6 +24,17 @@ export default function () {
       });
    });
 
+   router.delete("/", function (req: express.Request, res: express.Response, next: express.NextFunction) {
+      let {name} = req.body;
+      let project = {
+         name: name
+      } as Project;
+      Project.destroy()
+      .then(() => {
+         res.status(204).end();
+      });
+   });
+
    router.put("/update-name", function (req: express.Request, res: express.Response, next: express.NextFunction) {
       let project = req.body.payload as Project;
 

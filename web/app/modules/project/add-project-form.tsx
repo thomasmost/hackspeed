@@ -8,21 +8,35 @@ interface IAddProjectFormProps {
 }
 
 class AddProjectForm extends React.Component<IAddProjectFormProps> {
-  handleSubmit(val: any) {
-    // Do anything you want with the form value
-    console.log(val);
-    fetch("/api/projects/add", {
-      method: "POST",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(val)
-    })
-    .then( () => {
-      this.props.onSubmit();
-    });
-  }
+   handleSubmit(val: any) {
+     // Do anything you want with the form value
+     console.log(val);
+     fetch("/api/projects/add", {
+       method: "POST",
+       headers: {
+         "Accept": "application/json",
+         "Content-Type": "application/json",
+       },
+       body: JSON.stringify(val)
+     })
+     .then( () => {
+       this.props.onSubmit();
+     });
+   }
+
+   handleClearAll() {
+     // Do anything you want with the form value
+     fetch("/api/projects/", {
+       method: "DELETE",
+       headers: {
+         "Accept": "application/json",
+         "Content-Type": "application/json",
+       }
+     })
+     .then( () => {
+       this.props.onSubmit();
+     });
+   }
 
   render() {
     return (
@@ -33,6 +47,7 @@ class AddProjectForm extends React.Component<IAddProjectFormProps> {
             <Control.text model=".name" />
             <button>Add Project</button>
          </Form>
+         <button onClick={() => this.handleClearAll()}>Delete All</button>
       </div>
     );
   }

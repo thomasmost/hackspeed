@@ -17,7 +17,7 @@ export class App extends React.Component<IAppProps> {
                         <div className="header">
                            <Link to="/i" >
                               <ReactSVG path="logo.svg" />
-                              <h1>Ilion</h1>
+                              <h1>HackSpeed</h1>
                            </Link>
                         </div>
                         <Route exact path="/login"

@@ -14,7 +14,7 @@
       {
          "type": "node",
          "request": "attach",
-         "name": "Attach to Ilion Web",
+         "name": "Attach to HackSpeed Web",
          "processId": "21795"
       },
       {
