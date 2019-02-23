@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700');
+
+html {
+   font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   font-family: 'Oswald', sans-serif;
+   margin-bottom: .5em;
+}
+
+label {
+   font-weight: 700;
+   &.prompt {
+      font-weight: 400;
+   }
+}
+
+a {
+   text-decoration: none;
+   //color: #EDE982 !important;
+}

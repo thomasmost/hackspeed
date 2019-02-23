@@ -1,0 +1,82 @@
+// @font-face {
+//    font-family: "Soulmaker in the Mountains";
+//    src: url("../assets/Soulmaker in the Mountains.ttf") format("truetype");
+// }
+
+
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+  &:nth-child(#{$nth}+1) { clear: none }
+}
+
+html {
+   height: 100%;
+   body {
+      @include grid-media($base-grid){}
+      height: 100%;
+      position: relative;
+      padding: 0;
+      div#bg {
+         background-position: center center;
+         background-size: cover;
+         display: block;
+         height: 100%;
+         width: 100%;
+         transform: translateZ(0);
+         position: fixed;
+         top: 0;
+         left: 0;
+         z-index: -1;
+      }
+      div#app {
+         @include grid-container;
+         width: 100%;
+         margin: auto;
+         margin-bottom: 1.6em;
+         z-index: 1;
+         .application-wrapper {
+            height: calc(100% - 140px);
+         }
+         .header {
+            @include grid-container();
+            width: 100%;
+            display: block;
+            border-bottom: 2px solid black;
+            height: 50px;
+            background-color: white; // #404E5C; // #a7b4c1;
+            div:first-child {
+               margin-left: 0;
+               * {
+                  margin-left: 0;
+               }
+               width: 50px;
+               float: left;
+            }
+            svg {
+               left: 0;
+               top: 0;
+               height: 50px;
+               * {
+                  fill: #420C11;
+               }
+            }
+            h1 {
+               font-size: modular-scale(1);
+               color: black;
+               line-height: 50px;
+               float: left;
+            }
+            a {
+               line-height: 50px;
+               margin-left: 50px;
+               color: #420C11;
+            }
+         }
+      }
+   }
+}
+
+
+form {
+   margin-bottom: 50px;
+}
