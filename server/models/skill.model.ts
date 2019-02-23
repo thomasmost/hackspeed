@@ -21,6 +21,9 @@ export default class Skill extends Model<Skill> {
    @Column
    experience: number;
 
+   @Column
+   man_hours: number;
+
    @ForeignKey(() => Project)
    @Column
    project_id: number;

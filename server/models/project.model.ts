@@ -3,6 +3,10 @@ import ParticipantProject from "./participant_project.model";
 import Participant from "./participant.model";
 import Challenge from "./challenge.model"
 import ChallengeProject from "./challenge_project.model";
+import { BelongsTo } from "sequelize-typescript";
+import { ForeignKey } from "sequelize-typescript";
+import { HasMany } from "sequelize-typescript";
+import Skill from "./skill.model";
 
 @Table({
    tableName: "project"
@@ -32,7 +36,6 @@ export default class Project extends Model<Project> {
    @BelongsToMany(()=>Challenge, ()=>ChallengeProject)
    challenges: Challenge[];
 
-   // @HasMany(()=>Skill)
-   // required_effort: Skill[];
-
+   @HasMany(()=>Skill)
+   required_effort: Skill[]
 }

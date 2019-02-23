@@ -1,5 +1,7 @@
-import { Table, Column, Model, PrimaryKey, CreatedAt, UpdatedAt, AutoIncrement, HasOne, HasMany } from "sequelize-typescript";
-import ParticipantToProject from "./participant_project.model";
+import { Table, Column, Model, PrimaryKey, CreatedAt, UpdatedAt, AutoIncrement, HasOne, HasMany, BelongsToMany } from "sequelize-typescript";
+import Project from "./project.model";
+import ParticipantProject from "./participant_project.model";
+import Skill from "./skill.model";
 
 @Table({
    tableName: "participant"
@@ -29,10 +31,10 @@ export default class Participant extends Model<Participant> {
    @UpdatedAt
    updated: Date;
 
-   @HasMany(()=>ParticipantToProject)
-   projects: ParticipantToProject[];
+   @BelongsToMany(()=>Project, ()=>ParticipantProject)
+   projects: Project[];
 
-
-
+   @HasMany(()=>Skill)
+   skills: Skill[];
 
 }
