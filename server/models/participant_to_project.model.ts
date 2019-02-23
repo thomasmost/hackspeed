@@ -3,7 +3,7 @@ import Participant from "./participant.model";
 import Skill from "./skill.model";
 import Project from "./project.model";
 @Table({
-   tableName: "project"
+   tableName: "participant_to_project"
 })
 export default class ParticipantToProject extends Model<ParticipantToProject> {
 
