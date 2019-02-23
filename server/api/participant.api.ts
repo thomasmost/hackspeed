@@ -1,6 +1,6 @@
 import * as express from "express";
 import Project from "../models/project.model";
-import Participant from "server/models/participant.model";
+import User from "server/models/user.model";
 import Skill from "server/models/skill.model";
 
 let router = express.Router();
@@ -8,29 +8,25 @@ let router = express.Router();
 export default function () {
 
    router.get("/self", function (req: express.Request, res: express.Response, next: express.NextFunction) {
-      Participant.find(req.user.id)
-      .then( (participant) =>
-      {
-         res.send(participant);
-      });
+      res.send(req.user);
    });
 
    router.get("/list", function (req: express.Request, res: express.Response, next: express.NextFunction) {
-      Participant.findAll(req.user.id)
-      .then( (participant) =>
+      User.findAll(req.user.id)
+      .then( (user) =>
       {
-         res.send(participant);
+         res.send(user);
       });
    });
 
    router.post("/add", function (req: express.Request, res: express.Response, next: express.NextFunction) {
       const {name} = req.body;
-      const participant = {
+      const user = {
          name: name
-      } as Participant;
-      Participant.create(participant)
-      .then((Participant) => {
-         res.send(Participant);
+      } as User;
+      User.create(user)
+      .then((User) => {
+         res.send(User);
       });
    });
 
@@ -50,9 +46,15 @@ export default function () {
       .then(() => res.status(204).end());
    });
 
-   router.get("/suggested_projects", function(req: express.Request, res: express.Response, next: express.NextFunction){
-      
-   });
+   // router.get("/suggested_projects", function(req: express.Request, res: express.Response, next: express.NextFunction){
+   //    Skill.findAll({
+   //       where: {
+   //          project_id: null,
+   //          $no
+   //          user_id: 
+   //       }
+   //    })
+   // });
 
    return router;
 

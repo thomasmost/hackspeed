@@ -16,7 +16,7 @@ INSERT INTO db_info (id, key, value)
 VALUES
     (1,'framework_version','0.0.1');
  
-CREATE TABLE "participant" (
+CREATE TABLE "user" (
    id SERIAL PRIMARY KEY,
    name varchar(128) NOT NULL,
    profile_photo_url VARCHAR(255),
@@ -25,18 +25,18 @@ CREATE TABLE "participant" (
    handle varchar(20) NOT NULL,
    email varchar(100) NOT NULL,
    verified smallint NOT NULL DEFAULT '0',
-   CONSTRAINT participant_handle UNIQUE  (handle),
-   CONSTRAINT participant_email UNIQUE  (email)
+   CONSTRAINT user_handle UNIQUE  (handle),
+   CONSTRAINT user_email UNIQUE  (email)
 );
  
-CREATE TABLE "participant_login" (
+CREATE TABLE "user_login" (
    id SERIAL PRIMARY KEY,
-   participant_id int check (participant_id > 0) NOT NULL,
+   user_id int check (user_id > 0) NOT NULL,
    timestamp timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-   CONSTRAINT participant_login_ibfk_1 FOREIGN KEY (participant_id) REFERENCES "participant" (id) ON DELETE CASCADE ON UPDATE CASCADE
+   CONSTRAINT user_login_ibfk_1 FOREIGN KEY (user_id) REFERENCES "user" (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
  
-CREATE INDEX participant_login_participant_id ON "participant_login" (participant_id);
+CREATE INDEX user_login_user_id ON "user_login" (user_id);
  
 `;
 

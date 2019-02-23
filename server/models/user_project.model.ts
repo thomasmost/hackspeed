@@ -1,20 +1,20 @@
 import { Table, Column, Model, PrimaryKey, AutoIncrement, HasMany, HasOne, ForeignKey } from "sequelize-typescript";
-import Participant from "./participant.model";
+import User from "./user.model";
 import Skill from "./skill.model";
 import Project from "./project.model";
 @Table({
-   tableName: "participant_project"
+   tableName: "user_project"
 })
-export default class ParticipantProject extends Model<ParticipantProject> {
+export default class UserProject extends Model<UserProject> {
 
    @PrimaryKey
    @AutoIncrement
    @Column
    id: number;
 
-   @ForeignKey(() => Participant)
+   @ForeignKey(() => User)
    @Column
-   participant_id: string;
+   user_id: string;
 
    @ForeignKey(()=>Project)
    @Column
