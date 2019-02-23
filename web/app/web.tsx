@@ -12,12 +12,12 @@ import { createBrowserHistory } from "history";
 import ilionReducer from "./reducer";
 
 import createSagaMiddleware from "redux-saga";
-import characterSaga from "./modules/character/character.saga";
-import {sceneSaga, addSceneSaga, updateLayoutSaga, deleteSceneSaga, updateNameSaga} from "./modules/scene/scene.saga";
+// import characterSaga from "./modules/character/character.saga";
+// import {sceneSaga, addSceneSaga, updateLayoutSaga, deleteSceneSaga, updateNameSaga} from "./modules/scene/scene.saga";
 const sagaMiddleware = createSagaMiddleware()
 
 import { App } from "./modules/app/app";
-import { getCharacterList } from "./modules/character/character.actions";
+// import { getCharacterList } from "./modules/character/character.actions";
 import { getProjects } from "./modules/project/project.actions";
 import { getProjectsSaga } from "./modules/project/project.saga";
 
@@ -44,18 +44,18 @@ const store = createStore(
    applyMiddleware(middleware, sagaMiddleware)
 );
 // then run the saga
-sagaMiddleware.run(characterSaga);
-sagaMiddleware.run(sceneSaga);
-sagaMiddleware.run(addSceneSaga);
-sagaMiddleware.run(updateLayoutSaga);
-sagaMiddleware.run(deleteSceneSaga);
-sagaMiddleware.run(updateNameSaga);
+// sagaMiddleware.run(characterSaga);
+// sagaMiddleware.run(sceneSaga);
+// sagaMiddleware.run(addSceneSaga);
+// sagaMiddleware.run(updateLayoutSaga);
+// sagaMiddleware.run(deleteSceneSaga);
+// sagaMiddleware.run(updateNameSaga);
 sagaMiddleware.run(getProjectsSaga);
 
 export abstract class WebApp {
    public static initialize ()
    {
-      store.dispatch(getCharacterList());
+      // store.dispatch(getCharacterList());
       store.dispatch(getProjects());
       console.log("rendering app");
       ReactDOM.render(
