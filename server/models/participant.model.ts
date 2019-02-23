@@ -13,13 +13,21 @@ export default class Participant extends Model<Participant> {
    @Column
    name: string;
 
-   @HasOne(()=>Contact)
-   contact: Contact;
+   @Column
+   email: string;
+
+   @Column
+   phone_number: number;
+
+   @Column
+   twitter_handle: string;
 
    @CreatedAt
    created: Date;
 
    @UpdatedAt
    updated: Date;
+
+   
 
 }

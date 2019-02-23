@@ -99,13 +99,13 @@ function updateDatabase(fwVersion: string)
    console.log(fwVersion);
    var dbUpdates = [
    {
-      "version" : "0.0.5",
+      "version" : "0.0.1",
       "queries" : [
          ``
       ]
    },
    {
-      "version" : "0.0.6",
+      "version" : "0.0.2",
       "queries" : [
          ``
       ]

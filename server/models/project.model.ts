@@ -18,15 +18,15 @@ export default class Project extends Model<Project> {
    description: string;
 
    @Column
-   logo: ImageBitmap;
+   logo: string;
 
    @Column
    git_url: string;
 
-   @HasMany(()=>Participant)
-   participants: Participant[];
+   // @HasMany(()=>Participant)
+   // participants: Participant[];
 
-   @HasMany(()=>Skill)
-   required_effort: Skill[];
+   // @HasMany(()=>Skill)
+   // required_effort: Skill[];
 
 }

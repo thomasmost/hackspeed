@@ -14,7 +14,7 @@ import { IUser } from "../../shared/interfaces/user";
 import * as passport from "passport";
 
 import Env from "../env";
-import User from "../models/user.model";
+import Participant from "../models/participant.model";
 
 const JWT_SECRET = Env.JWT_SECRET;
 
@@ -25,7 +25,7 @@ export default function(passport: passport.Passport) {
    function(username: string, password: string, done: any)
    {
       if (password === Env.PASSKEY) {
-         User.findById(1)
+         Participant.findById(1)
          .then(function (user) {
             return done(null, user);
          })

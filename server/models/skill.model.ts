@@ -3,9 +3,6 @@ import { Table, Column, Model, PrimaryKey, CreatedAt, UpdatedAt, AutoIncrement, 
 @Table({
    tableName: "skill"
 })
-
-export type SkillCategory = "development" | "design" | "project management"
-
 export default class Skill extends Model<Skill> {
 
    @PrimaryKey
@@ -23,3 +20,5 @@ export default class Skill extends Model<Skill> {
    experience: number;
 
 }
+
+export type SkillCategory = "development" | "design" | "project management"

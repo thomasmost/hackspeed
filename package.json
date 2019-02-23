@@ -11,6 +11,7 @@
     "postinstall": "npm run build",
     "clean": "rm -rf ./dist && rm -rf ./public",
     "build": "tsc -p ./server && webpack --env.production --mode production",
+    "build-server": "tsc -p ./server",
     "go": "concurrently \"webpack --watch\" \"npm run start\"",
     "start": "node ./dist/server/server.js",
     "tsc": "tsc",

@@ -25,18 +25,18 @@ CREATE TABLE "participant" (
    handle varchar(20) NOT NULL,
    email varchar(100) NOT NULL,
    verified smallint NOT NULL DEFAULT '0',
-   CONSTRAINT user_handle UNIQUE  (handle),
-   CONSTRAINT user_email UNIQUE  (email)
+   CONSTRAINT participant_handle UNIQUE  (handle),
+   CONSTRAINT participant_email UNIQUE  (email)
 );
  
 CREATE TABLE "participant_login" (
    id SERIAL PRIMARY KEY,
-   user_id int check (user_id > 0) NOT NULL,
+   participant_id int check (participant_id > 0) NOT NULL,
    timestamp timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-   CONSTRAINT user_login_ibfk_1 FOREIGN KEY (user_id) REFERENCES "user" (id) ON DELETE CASCADE ON UPDATE CASCADE
+   CONSTRAINT participant_login_ibfk_1 FOREIGN KEY (participant_id) REFERENCES "participant" (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
  
-CREATE INDEX user_login_user_id ON "user_login" (user_id);
+CREATE INDEX participant_login_participant_id ON "participant_login" (participant_id);
  
 `;
 
