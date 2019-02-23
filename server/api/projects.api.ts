@@ -25,11 +25,13 @@ export default function () {
    });
 
    router.delete("/", function (req: express.Request, res: express.Response, next: express.NextFunction) {
-      let {name} = req.body;
-      let project = {
-         name: name
-      } as Project;
-      Project.destroy()
+      Project.findAll()
+      .then( (projects) =>
+      {
+         return Promise.all(
+            projects.map((project) => project.destroy())
+         );
+      })
       .then(() => {
          res.status(204).end();
       });
