@@ -12,7 +12,7 @@ export const SidebarMenu = () => {
          <Link to="/i/timeline" >
             Timeline
          </Link>
-         <Link to="/login" >
+         <Link to="/logout" >
             Log Out
          </Link>
       </div>;
