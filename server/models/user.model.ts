@@ -31,10 +31,10 @@ export default class User extends Model<User> {
    @UpdatedAt
    updated: Date;
 
-   @BelongsToMany(()=>Project, ()=>UserProject)
+   @BelongsToMany(() => Project, () => UserProject)
    projects: Project[];
 
-   @HasMany(()=>Skill)
+   @HasMany(() => Skill)
    skills: Skill[];
 
 }
