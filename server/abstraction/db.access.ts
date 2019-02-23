@@ -101,13 +101,13 @@ function updateDatabase(fwVersion: string)
    {
       "version" : "0.0.5",
       "queries" : [
-         ""
+         ``
       ]
    },
    {
       "version" : "0.0.6",
       "queries" : [
-         `ALTER TABLE scene add column x_col INT NOT NULL DEFAULT 0`
+         ``
       ]
    }
   ];
@@ -149,6 +149,6 @@ function updateDatabase(fwVersion: string)
          });
       });
    } else {
-      console.log("[DB]\tYou're running IlionDB® v" + fwVersion + " and ready to go!");
+      console.log("[DB]\tYou're running HackSpeed_DB® v" + fwVersion + " and ready to go!");
    }
 }

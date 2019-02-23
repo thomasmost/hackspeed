@@ -117,15 +117,15 @@ app.get("*", function response(req: express.Request, res: express.Response) {
 
 //Log the domain id, req, and error to the console
 app.use(function errorHandler(err: express.Errback, req: express.Request, res: express.Response, next: express.NextFunction) {
-  if (process.domain)
-  {
-    console.log("error on request %s %s: %s", req.method, req.url, err);
-  }
-  else
-  {
-     console.log("Error occurred outside of a request: %s", err);
-  }
-  next(err);
+//   if (process.domain)
+//   {
+//     console.log("error on request %s %s: %s", req.method, req.url, err);
+//   }
+//   else
+//   {
+//      console.log("Error occurred outside of a request: %s", err);
+//   }
+//   next(err);
 });
 
 //Log the error to Stackify
