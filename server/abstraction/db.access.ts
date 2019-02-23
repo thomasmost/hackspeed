@@ -116,7 +116,7 @@ function updateDatabase(fwVersion: string)
   if (versionCompare(fwVersion, dbUpdates[0].version) == -1)
   {
     console.error("[DB]\tYour database is too out-of-date for automatic updates. "+
-      "Please run mysql/yollerdb-setup.sql to manually update the database.");
+      "Please manually update the database.");
     throw "Out-of-date DB";
   } else if (versionCompare(fwVersion, dbUpdates[dbUpdates.length - 1].version) == 1)
   {
