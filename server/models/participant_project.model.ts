@@ -3,9 +3,9 @@ import Participant from "./participant.model";
 import Skill from "./skill.model";
 import Project from "./project.model";
 @Table({
-   tableName: "participant_to_project"
+   tableName: "participant_project"
 })
-export default class ParticipantToProject extends Model<ParticipantToProject> {
+export default class ParticipantProject extends Model<ParticipantProject> {
 
    @PrimaryKey
    @AutoIncrement
@@ -13,9 +13,11 @@ export default class ParticipantToProject extends Model<ParticipantToProject> {
    id: number;
 
    @ForeignKey(() => Participant)
+   @Column
    participant_id: string;
 
    @ForeignKey(()=>Project)
+   @Column
    project_id: string;
 
 }
