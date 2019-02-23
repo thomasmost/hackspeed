@@ -1,6 +1,6 @@
 import { Table, Column, Model, PrimaryKey, AutoIncrement, HasMany } from "sequelize-typescript";
-import Participant from "./participant.model";
-import Skill from "./skill.model";
+import ParticipantToProject from "./participantToProject.model";
+
 @Table({
    tableName: "project"
 })
@@ -23,8 +23,8 @@ export default class Project extends Model<Project> {
    @Column
    git_url: string;
 
-   // @HasMany(()=>Participant)
-   // participants: Participant[];
+   @HasMany(()=>ParticipantToProject)
+   participants: ParticipantToProject[];
 
    // @HasMany(()=>Skill)
    // required_effort: Skill[];

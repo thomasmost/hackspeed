@@ -1,4 +1,5 @@
-import { Table, Column, Model, PrimaryKey, CreatedAt, UpdatedAt, AutoIncrement, HasOne } from "sequelize-typescript";
+import { Table, Column, Model, PrimaryKey, CreatedAt, UpdatedAt, AutoIncrement, HasOne, HasMany } from "sequelize-typescript";
+import ParticipantToProject from "./participantToProject.model";
 
 @Table({
    tableName: "participant"
@@ -28,6 +29,8 @@ export default class Participant extends Model<Participant> {
    @UpdatedAt
    updated: Date;
 
-   
+   @HasMany(()=>ParticipantToProject)
+   projects: ParticipantToProject[];
+
 
 }
