@@ -13,14 +13,17 @@
     "build": "tsc -p ./server && webpack --env.production --mode production",
     "build-server": "tsc -p ./server",
     "go": "concurrently \"webpack --watch\" \"npm run start\"",
-    "start": "node ./dist/server/server.js",
+    "start": "tsc -p ./server && node ./dist/server/server.js",
     "tsc": "tsc",
     "tests": "jest",
     "test-coverage": "jest --coverage",
     "test-watch": "jest --watch"
   },
   "dependencies": {
+    "@types/auth0-lock": "^11.4.11",
     "@types/react-sidebar": "^3.0.0",
+    "auth0-js": "^9.10.0",
+    "auth0-lock": "^11.14.0",
     "body-parser": "^1.18.3",
     "bourbon": "^4.3.4",
     "bourbon-neat": "^2.1.0",
@@ -62,7 +65,9 @@
     "reflect-metadata": "^0.1.12",
     "sanitize-html": "^1.18.5",
     "sequelize": "^4.38.0",
-    "sequelize-typescript": "^0.6.6"
+    "sequelize-typescript": "^0.6.6",
+    "web-animations-js": "^2.3.1",
+    "zone.js": "^0.8.29"
   },
   "repository": {
     "type": "git",

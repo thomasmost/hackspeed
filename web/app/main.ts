@@ -1,5 +1,4 @@
 require("./sass/index");
-require("../../node_modules/react-resizable/css/styles.css");
 
 console.log("initializing");
 
