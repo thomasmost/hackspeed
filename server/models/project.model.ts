@@ -1,5 +1,5 @@
 import { Table, Column, Model, PrimaryKey, AutoIncrement, HasMany } from "sequelize-typescript";
-import ParticipantToProject from "./participantToProject.model";
+import ParticipantToProject from "./participant_project.model";
 import { BelongsToMany } from "sequelize-typescript";
 import Participant from "./participant.model";
 

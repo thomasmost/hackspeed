@@ -1,5 +1,5 @@
 import { Table, Column, Model, PrimaryKey, CreatedAt, UpdatedAt, AutoIncrement, HasOne, HasMany } from "sequelize-typescript";
-import ParticipantToProject from "./participantToProject.model";
+import ParticipantToProject from "./participant_project.model";
 
 @Table({
    tableName: "participant"
