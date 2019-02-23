@@ -2,9 +2,7 @@ import * as React from "react";
 import { Route } from "react-router-dom";
 import Sidebar from "react-sidebar";
 import { Home } from "./home";
-import { Timeline } from "../timeline/timeline";
 import { SidebarMenu } from "./sidebar-menu";
-import { CharacterPage } from "../character/character-page";
 
 
 const mql = window.matchMedia(`(min-width: 800px)`);
@@ -105,8 +103,6 @@ export class InternalApp extends React.Component<IInternalAppProps, IInternalApp
             >
                <b>
                   <Route exact path="/i" component={Home} />
-                  <Route exact path="/i/characters" component={CharacterPage} />
-                  <Route exact path="/i/timeline" component={Timeline} />
                </b>
             </Sidebar>
       </div>;

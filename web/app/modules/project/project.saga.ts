@@ -1,6 +1,5 @@
 import { call, put, takeEvery, takeLatest } from "redux-saga/effects"
 import { getProjectsSuccess, addProjectSuccess, ADD_PROJECT_REQUEST, UPDATE_PROJECT_NAME, DELETE_PROJECT_REQUEST, GET_PROJECT_LIST_REQUEST } from "./project.actions";
-import { CHANGE_LAYOUT } from "../timeline/timeline.actions";
 import Project from "server/models/scene.model";
 
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
@@ -69,11 +68,6 @@ function* updateLayout(projects: any[]) {
    } catch (e) {
       // yield put({type: "USER_FETCH_FAILED", message: e.message});
    }
-}
-
-export function* updateLayoutSaga() {
-   // why?
-  yield takeLatest(CHANGE_LAYOUT as any, updateLayout);
 }
 
 function* updateName(payload: {scene:Project}) {

@@ -13,8 +13,8 @@ const ProjectList = (props: IProjectListProps) =>
          return (
             <ProjectCard
                key={project.id}
-               project={project}>
-            </ProjectCard>
+               project={project}
+            />
       );
    });
    return (
