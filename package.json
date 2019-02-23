@@ -20,6 +20,7 @@
     "test-watch": "jest --watch"
   },
   "dependencies": {
+    "@types/auth0-js": "^8.11.11",
     "@types/auth0-lock": "^11.4.11",
     "@types/react-sidebar": "^3.0.0",
     "auth0-js": "^9.10.0",

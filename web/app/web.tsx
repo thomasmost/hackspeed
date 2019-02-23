@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import "auth0-js";
 
 import { Provider } from "react-redux";
 import { createStore, combineReducers, applyMiddleware } from "redux";
@@ -31,7 +30,7 @@ if (!(window as any).Promise) {
  (window as any).Promise = Promise;
 }
 
-const history = createBrowserHistory();
+export const history = createBrowserHistory();
 const middleware = routerMiddleware(history)
 const store = createStore(
    connectRouter(history)(
