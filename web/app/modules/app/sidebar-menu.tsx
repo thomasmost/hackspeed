@@ -6,11 +6,8 @@ export const SidebarMenu = () => {
          <Link to="/i" >
             Dashboard
          </Link>
-         <Link to="/i/characters" >
-            Characters
-         </Link>
-         <Link to="/i/timeline" >
-            Timeline
+         <Link to="/i/profile" >
+            Profile
          </Link>
          <Link to="/logout" >
             Log Out
