@@ -95,6 +95,7 @@ class UserProfile extends React.Component<UserProfileProps, UserProfileState> {
             {viewingUserId === user.id && <a onClick={() => this.setState({editing: !editing})}>Edit</a>}
             <h3>Skills:</h3>
             {user.skills && user.skills.map(this.renderSkill)}
+            {editing && this.renderAddSkillForm()}
          </div>
       );
    }
