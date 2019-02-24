@@ -2,6 +2,7 @@ import { Table, Column, Model, PrimaryKey, CreatedAt, UpdatedAt, AutoIncrement, 
 import Project from "./project.model";
 import UserProject from "./user_project.model";
 import Skill from "./skill.model";
+import Event from "./event.model";
 
 @Table({
    tableName: "user"
@@ -31,10 +32,22 @@ export default class User extends Model<User> {
    @UpdatedAt
    updated: Date;
 
+   @Column
+   hours_sleep: number;
+
    @BelongsToMany(() => Project, () => UserProject)
    projects: Project[];
 
    @HasMany(() => Skill)
    skills: Skill[];
+
+   getProjectCommitments(event: Event){
+      return UserProject.findAll({
+         where: {
+            user_id: this.id,
+            event_id: event.id
+         }
+      })
+   }
 
 }

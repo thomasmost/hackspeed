@@ -12,10 +12,10 @@ export default function () {
    });
 
    router.get("/list", function (req: express.Request, res: express.Response, next: express.NextFunction) {
-      User.findAll(req.user.id)
-      .then( (user) =>
+      User.findAll()
+      .then( (users) =>
       {
-         res.send(user);
+         res.send(users);
       });
    });
 
@@ -47,13 +47,20 @@ export default function () {
    });
 
    // router.get("/suggested_projects", function(req: express.Request, res: express.Response, next: express.NextFunction){
-   //    Skill.findAll({
-   //       where: {
-   //          project_id: null,
-   //          $no
-   //          user_id: 
-   //       }
+   //    const event_id = req.params.event_id;
+   //    const user = req.user;
+
+   //    Project.findAll({
+   //       where: {event_id}
+   //    }).then((projects)=>{
+   //       return projects.map((project) => {
+   //          const match = project.remaining_effort.reduce((match, skill) => {
+   //             user.skills.if(skill)
+   //          }, 0);
+   //          projects.match = match;
+   //       })
    //    })
+
    // });
 
    return router;

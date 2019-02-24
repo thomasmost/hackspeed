@@ -1,4 +1,4 @@
-import { Table, Column, Model, PrimaryKey, ForeignKey, AutoIncrement, HasOne } from "sequelize-typescript";
+import { Table, Column, Model, PrimaryKey, ForeignKey, AutoIncrement, HasOne, Min, Max } from "sequelize-typescript";
 import User from "./user.model";
 import Project from "./project.model";
 
@@ -19,6 +19,8 @@ export default class Skill extends Model<Skill> {
    name: string;
 
    @Column
+   @Min(1)
+   @Max(20)
    experience: number;
 
    @Column
