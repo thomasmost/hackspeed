@@ -2,6 +2,11 @@ import * as express from "express";
 import Project from "../models/project.model";
 import User from "server/models/user.model";
 import Skill from "server/models/skill.model";
+import Event from "../models/event.model";
+import * as skillHelper from "../helpers/skill.helper";
+import * as userHelper from "../helpers/user.helper";
+import * as Promise from "bluebird";
+import Match from "shared/interfaces/match.model";
 
 let router = express.Router();
 //Router is namespaced in server.js to /api/sessions
@@ -46,22 +51,37 @@ export default function () {
       .then(() => res.status(204).end());
    });
 
-   // router.get("/suggested_projects", function(req: express.Request, res: express.Response, next: express.NextFunction){
-   //    const event_id = req.params.event_id;
-   //    const user = req.user;
+   router.get("/suggested_projects", function(req: express.Request, res: express.Response, next: express.NextFunction){
+      const event_id = req.params.event_id;
+      const user: User = req.user;
+      const eventPromise = Event.findById(event_id)
+      const userRemainingHoursPromise = eventPromise.then((event) => userHelper.workingHoursForEvent(user, event));
 
-   //    Project.findAll({
-   //       where: {event_id}
-   //    }).then((projects)=>{
-   //       return projects.map((project) => {
-   //          const match = project.remaining_effort.reduce((match, skill) => {
-   //             user.skills.if(skill)
-   //          }, 0);
-   //          projects.match = match;
-   //       })
-   //    })
+      const projectsPromise = Project.findAll({
+         where: {event_id}
+      });
 
-   // });
+      Promise.props({
+         projects: projectsPromise,
+         userRemainingHours: userRemainingHoursPromise
+      }).then(({projects, userRemainingHours})=>{
+         const matches = projects.map((project) => {
+            let match = project.remaining_effort.reduce((match, projectSkill) => {
+               const userHasApplicableSkill = user.skills.some((userSkill) => skillHelper.skillIsApplicable(userSkill, projectSkill));
+               if (userHasApplicableSkill){
+                  match += projectSkill.man_hours;
+               }
+               return match;
+            }, 0);
+            if (match > userRemainingHours){
+               match = userRemainingHours;
+            }
+            return new Match(match, project.views, project);
+         });
+
+         return matches.sort((a, b) => b.match - a.match && b.popularity - a.popularity);
+      });
+   });
 
    return router;
 
