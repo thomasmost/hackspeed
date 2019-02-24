@@ -1,7 +1,7 @@
 import * as express from "express";
 import Project from "../models/project.model";
-import EventUser from "server/models/event_user.model";
-import User from "server/models/user.model";
+import EventUser from "../models/event_user.model";
+import User from "../models/user.model";
 import Event from "../models/event.model";
 import * as userHelper from "../helpers/user.helper";
 import * as skillHelper from "../helpers/skill.helper";
