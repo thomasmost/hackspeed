@@ -15,7 +15,8 @@
         "moduleResolution": "node",
         "baseUrl": ".",
         "jsx": "react",
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "downlevelIteration": true
     },
     "exclude": [
         "node_modules/**/*"
