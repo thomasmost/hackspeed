@@ -1,4 +1,3 @@
-const ENV = process.env.NODE_ENV = process.env.ENV = "production";
 
 var path = require("path");
 var BrowserSyncPlugin = require("browser-sync-webpack-plugin");
@@ -12,11 +11,12 @@ var bourbon = require("bourbon").includePaths;
 var neat = require("bourbon-neat").includePaths;
 var stylepaths = bourbon.concat(neat);
 
-
 let returnHost = process.env.RETURN_HOST;
 if (process.env.NODE_ENV !== "production") {
-   returnHost = JSON.stringify(require("dotenv").config().parsed.RETURN_HOST);
- }
+   returnHost = require("dotenv").config().parsed.RETURN_HOST;
+}
+
+const ENV = process.env.NODE_ENV = process.env.ENV = "production";
 
 let webpackBuildLogger = new WebpackBuildLogger({
    logEnabled: true, // false - default 
