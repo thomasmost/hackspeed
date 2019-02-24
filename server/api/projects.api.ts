@@ -80,6 +80,15 @@ export default function () {
       });
    });
 
+   router.get("/view", function(req: express.Request, res: express.Response, next: express.NextFunction){
+      const project_id = req.params.project_id
+      return Project.findById(project_id)
+      .then((project) => {
+         project.views += 1;
+         return project.save();
+      });
+   });
+
    router.get("/suggested_users", function(req: express.Request, res: express.Response, next: express.NextFunction){
       const event_id = req.params.event_id;
       const project_id = req.params.project_id;
