@@ -6,7 +6,7 @@ export const SidebarMenu = () => {
          <Link to="/i" >
             Dashboard
          </Link>
-         <Link to="/i/profile" >
+         <Link to="/i/self" >
             Profile
          </Link>
          <Link to="/logout" >

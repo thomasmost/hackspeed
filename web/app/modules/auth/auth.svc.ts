@@ -3,6 +3,7 @@ import { WebAuth, Auth0DecodedHash } from "auth0-js";
 
 import { history } from "../../web";
 import { api } from "web/app/api";
+import User from "server/models/user.model";
 
 export default class Auth {
       auth0 = new WebAuth({
@@ -15,6 +16,7 @@ export default class Auth {
    accessToken: string;
    idToken: string;
    expiresAt: number;
+   user: User;
 
    constructor() {
       //  this.login = this.login.bind(this);
@@ -68,7 +70,10 @@ export default class Auth {
            name: authResult.idTokenPayload.name
         })
       })
-      .then(function() {
+      .then(function(response) {
+         return response.json()
+      }).then((user)=>{
+         this.user = user;
          history.replace("/i");
       });
    }

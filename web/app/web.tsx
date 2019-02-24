@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 import { Provider } from "react-redux";
-import { createStore, combineReducers, applyMiddleware } from "redux";
+import { createStore, combineReducers, applyMiddleware, Middleware } from "redux";
 
 import { connectRouter, routerMiddleware } from "connected-react-router"
 
@@ -15,12 +15,13 @@ import hackspeedReducer from "./reducer";
 import createSagaMiddleware from "redux-saga";
 // import characterSaga from "./modules/character/character.saga";
 // import {sceneSaga, addSceneSaga, updateLayoutSaga, deleteSceneSaga, updateNameSaga} from "./modules/scene/scene.saga";
-const sagaMiddleware = createSagaMiddleware()
+const sagaMiddleware = createSagaMiddleware();
 
 import { App } from "./modules/app/app";
 // import { getCharacterList } from "./modules/character/character.actions";
 import { getProjects, getProjectsForUser } from "./modules/project/project.actions";
 import { getProjectsSaga, getProjectsForUserSaga, getProjectsForEventSaga } from "./modules/project/project.saga";
+import { actionToPlainObject } from "./actionToPlainObjectMiddleware";
 
 // Polyfills
 var Promise = require( "promise-polyfill" );
@@ -42,7 +43,7 @@ const store = createStore(
          login: { username: "rebis", password: "" }
       }),
    })),
-   applyMiddleware(middleware, sagaMiddleware)
+   applyMiddleware(actionToPlainObject, middleware, sagaMiddleware)
 );
 // then run the saga
 // sagaMiddleware.run(characterSaga);

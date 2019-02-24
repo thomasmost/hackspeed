@@ -47,8 +47,8 @@ export default function () {
             auth_zero_access_token: req.token
          });
       })
-      .then(() => {
-         res.status(204).end();
+      .then((user) => {
+         res.send(user);
       });
    });
 

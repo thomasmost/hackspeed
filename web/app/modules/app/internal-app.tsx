@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import Sidebar from "react-sidebar";
 import { DashboardContainer } from "./home";
 import { SidebarMenu } from "./sidebar-menu";
+import { UserProfileContainer } from "../user/user-profile";
 
 
 const mql = window.matchMedia(`(min-width: 800px)`);
@@ -103,6 +104,7 @@ export class InternalApp extends React.Component<IInternalAppProps, IInternalApp
             >
                <b>
                   <Route exact path="/i" component={DashboardContainer} />
+                  <Route path="/i/self" component={UserProfileContainer}/>
                </b>
             </Sidebar>
       </div>;
