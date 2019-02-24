@@ -8,6 +8,7 @@ import { InternalApp } from "./internal-app";
 import { LoginPage } from "./login";
 import { PrivateRoute } from "../auth/private_route";
 import { LoggedOutPage } from "./logged_out";
+import { SplashPage } from "./splash_page";
 
 export interface IAppProps { history: any; }
 export class App extends React.Component<IAppProps> {
@@ -21,6 +22,8 @@ export class App extends React.Component<IAppProps> {
                               <ReactSVG path="hackspeed.svg" />
                            </Link>
                         </div>
+                        <Route exact path="/"
+                           component={SplashPage} />
                         <Route exact path="/login"
                            component={LoginPage} />
                         <Route exact path="/logout"

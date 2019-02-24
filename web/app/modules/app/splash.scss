@@ -1,0 +1,27 @@
+@import '../../sass/base/colors';
+
+:local(.container) {
+   margin-top: 100px;
+   width: 100%;
+   div {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: $hackspeed_blue;
+   }
+   button {
+      text-align: center;
+      width: 400px;
+      margin: auto;
+      display: block;
+      font-size: 1rem;
+      color: white;
+      background-color: $gunmetal;
+      border-radius: 5px;
+      padding: 20px;
+      cursor: pointer;
+      &:hover {
+         background-color: darken($gunmetal, 10)
+      }
+   }
+}
