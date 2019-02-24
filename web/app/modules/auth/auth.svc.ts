@@ -2,6 +2,7 @@
 import { WebAuth, Auth0DecodedHash } from "auth0-js";
 
 import { history } from "../../web";
+import { api } from "web/app/api";
 
 export default class Auth {
       auth0 = new WebAuth({
@@ -57,6 +58,16 @@ export default class Auth {
 
       // navigate to the home route
       history.replace("/i");
+      api.send("/api/users/ensure", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+           email: authResult.idTokenPayload.email
+        })
+      });
    }
 
    renewSession() {

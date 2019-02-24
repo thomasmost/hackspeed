@@ -47,7 +47,7 @@ export default class User extends Model<User> {
             user_id: this.id,
             event_id: event.id
          }
-      })
+      });
    }
 
 }

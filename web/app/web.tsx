@@ -10,7 +10,7 @@ import { createForms } from "react-redux-form";
 
 import { createBrowserHistory } from "history";
 
-import ilionReducer from "./reducer";
+import hackspeedReducer from "./reducer";
 
 import createSagaMiddleware from "redux-saga";
 // import characterSaga from "./modules/character/character.saga";
@@ -35,7 +35,7 @@ const middleware = routerMiddleware(history)
 const store = createStore(
    connectRouter(history)(
       combineReducers({
-      ...ilionReducer,
+      ...hackspeedReducer,
       ...createForms({
          addCharacter: {name: ""},
          addProject: {name: ""},

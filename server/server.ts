@@ -20,7 +20,7 @@ if (process.env.NODE_ENV !== "production") {
 
 // Import Express
 import * as express from "express";
-let router = express.Router();
+// let router = express.Router();
 
 // Import and add our globals
 // import addGlobals from "./globals";
@@ -50,6 +50,9 @@ db.checkDatabaseVersion();
 
 //Initializes the Express application
 var app = express();
+const bearerToken = require("express-bearer-token");
+app.use(bearerToken());
+
 if (process.env.NODE_ENV === "production") {
   app.use(sslRedirect());
 }
@@ -83,12 +86,12 @@ app.use(domainMiddleware);
 import apiProjects from "./api/projects.api";
 // import apiAuth from "./api/auth.api";
 import apiSessions from "./api/sessions.api";
-// import apiUsers from "./api/users.api";
+import apiUsers from "./api/user.api";
 
 app.use("/api/projects", apiProjects());
 // app.use("/api/auth",          apiAuth());
 app.use("/api/sessions",      apiSessions(passport));
-// app.use("/api/users",         apiUsers());
+app.use("/api/users",         apiUsers());
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 //

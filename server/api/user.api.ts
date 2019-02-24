@@ -24,6 +24,32 @@ export default function () {
       });
    });
 
+   router.post("/ensure", function (req: any, res: express.Response, next: express.NextFunction) {
+      if (!req.token || !req.body.email) {
+         throw new Error("Expected a token and email address");
+      }
+      return User.find({
+         where: {
+            email: req.body.email
+         }
+      })
+      .then((user) => {
+         if (!user) {
+            return User.create({
+               email: req.body.email,
+               auth_zero_access_token: req.token
+            });
+         }
+         return user.update({
+            auth_zero_access_token: req.token
+         });
+      })
+      .then(() => {
+         res.status(204).end();
+      });
+   });
+
+   // careful before trying to use this... not to be confused with /ensure above
    router.post("/add", function (req: express.Request, res: express.Response, next: express.NextFunction) {
       const {name} = req.body;
       const user = {

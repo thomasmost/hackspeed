@@ -3,20 +3,20 @@
 // import * as Q from 'q';
 
 // import {GetTimezoneFromGoogle} from "../place-dets";
-// import {IUserSettings} from "@ilion/models/user-types";
-// // import {OkPacket, UploadImageResult} from '@ilion/models/other.model';
-// import {YollerInfoDto, CollabDto} from "@ilion/models/yoller-info";
-// import {OkPacket, EmailAvailabilityStatus} from "@ilion/models/other.model";
+// import {IUserSettings} from "@hackspeed/models/user-types";
+// // import {OkPacket, UploadImageResult} from '@hackspeed/models/other.model';
+// import {YollerInfoDto, CollabDto} from "@hackspeed/models/yoller-info";
+// import {OkPacket, EmailAvailabilityStatus} from "@hackspeed/models/other.model";
 // import {UserCreate} from "./user-create";
 // import {User, UserMin, UserRow, UserRowExt} from "../classes/user";
 // import YStrings from "../strings";
-// import {IFeedFilter, UserUpcomingFilters} from "@ilion/models/feed.model";
+// import {IFeedFilter, UserUpcomingFilters} from "@hackspeed/models/feed.model";
 // import {EmailAbst} from "./email.abst";
-// import {YollerBlock} from "@ilion/models/yoller-block.model";
+// import {YollerBlock} from "@hackspeed/models/yoller-block.model";
 // import {YollerBlocks} from "./yoller-blocks.abst";
 // import {YollerSetsAbst} from "./yoller-sets.abst";
 
-// import { Val } from "@ilion/shared/validation";
+// import { Val } from "@hackspeed/shared/validation";
 
 // export interface ILoginResult
 //    {

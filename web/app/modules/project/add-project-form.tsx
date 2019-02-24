@@ -2,6 +2,7 @@ import * as React from "react";
 import { Control, Form } from "react-redux-form";
 import { connect } from "react-redux";
 import { getProjects } from "./project.actions";
+import { api } from "web/app/api";
 
 interface IAddProjectFormProps {
    onSubmit: () => void;
@@ -11,7 +12,7 @@ class AddProjectForm extends React.Component<IAddProjectFormProps> {
    handleSubmit(val: any) {
      // Do anything you want with the form value
      console.log(val);
-     fetch("/api/projects/add", {
+     api.send("/api/projects/add", {
        method: "POST",
        headers: {
          "Accept": "application/json",

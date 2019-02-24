@@ -7,9 +7,12 @@ export const lock = new Auth0Lock(
    "hackspeed-dev.auth0.com",
    {
       auth: {
+         params: {
+            scope: "openid email picture"
+         },
          redirect: true,
          redirectUrl: "http://localhost:3000/auth_callback",
-         responseType: "token id_token",
+         responseType: "token id_token"
       }
    }
 );

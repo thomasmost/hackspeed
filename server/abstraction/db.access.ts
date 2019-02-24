@@ -18,7 +18,7 @@ const sequelize = new Sequelize({
 });
 
 // initializeDB(sequelize);
-// var sequelize = new Sequelize("postgres://postgres:0pass@localhost:5432/iliondb");
+// var sequelize = new Sequelize("postgres://postgres:0pass@localhost:5432/hackspeeddb");
 
 // Use this class to construct a general query object. The format is:
 // strQuery: The MySQL query string with ?'s for values.
@@ -122,6 +122,15 @@ function updateDatabase(fwVersion: string)
       "version" : "0.0.4",
       "queries" : [
          `ALTER TABLE "user" ADD COLUMN auth_zero_access_token VARCHAR(255)`,
+      ]
+   },
+   {
+      "version" : "0.0.5",
+      "queries" : [
+         `ALTER TABLE "user" ADD COLUMN name VARCHAR(255)`,
+         `ALTER TABLE "user" ADD COLUMN phone_number SMALLINT`,
+         `ALTER TABLE "user" ADD COLUMN twitter_handle VARCHAR(100)`,
+         `ALTER TABLE "user" ADD COLUMN hours_sleep SMALLINT`,
       ]
    }
   ];
