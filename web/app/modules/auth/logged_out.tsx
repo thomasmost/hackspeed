@@ -1,11 +1,11 @@
 import * as React from "react";
-import { lock } from "../auth/auth0_lock";
+import { clientSession } from "./auth.session";
 
 
 export class LoggedOutPage extends React.Component {
 
    componentDidMount() {
-      localStorage.setItem("accessToken", "");
+      clientSession.logout();
    }
 
    render () {

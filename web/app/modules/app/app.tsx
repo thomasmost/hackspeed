@@ -10,13 +10,11 @@ import { PrivateRoute } from "../auth/private_route";
 import { LoggedOutPage } from "../auth/logged_out";
 import { SplashPage } from "./splash_page";
 import { AuthCallback } from "../auth/auth_callback";
-import Auth from "../auth/auth.svc";
-
-const auth = new Auth();
+import { clientSession } from "../auth/auth.session";
 
 const handleAuthentication = (nextState: any, replace?: any) => {
    if (/access_token|id_token|error/.test(nextState.location.hash)) {
-     auth.handleAuthentication();
+     clientSession.handleAuthentication();
    }
 };
 
