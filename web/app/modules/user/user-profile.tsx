@@ -24,6 +24,10 @@ interface UserProfileState{
 
 class UserProfile extends React.Component<UserProfileProps, UserProfileState> {
 
+   state = {
+      editing: false,
+      skill: null as any
+   }
    renderAddSkillForm() {
       const {skill} = this.state;
       const hasCategory = skill.category;
