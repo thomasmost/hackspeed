@@ -2,6 +2,9 @@ import Auth0Lock from "auth0-lock";
 
 import { history } from "../../web";
 
+console.log(process.env)
+console.log(`${process.env.RETURN_HOST}auth_callback`)
+
 export const lock = new Auth0Lock(
    "x2pKjxcL9XLMqWO1k5H6Tr3eFcU06Ggr",
    "hackspeed-dev.auth0.com",
@@ -11,7 +14,7 @@ export const lock = new Auth0Lock(
          //    scope: "openid email picture"
          // },
          redirect: true,
-         redirectUrl: "http://localhost:3000/auth_callback",
+         redirectUrl: `${process.env.RETURN_HOST}auth_callback`,
          responseType: "token id_token"
       }
    }
