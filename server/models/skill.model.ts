@@ -18,11 +18,12 @@ export default class Skill extends Model<Skill> {
    @Column
    name: string;
 
-   @Column
    @Min(1)
    @Max(20)
+   @Column
    experience: number;
 
+   @Min(0)
    @Column
    man_hours: number;
 
