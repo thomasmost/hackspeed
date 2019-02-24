@@ -117,6 +117,12 @@ function updateDatabase(fwVersion: string)
          `ALTER TABLE project ADD COLUMN logo TEXT`,
          `ALTER TABLE project ADD COLUMN git_url VARCHAR(255)`,
       ]
+   },
+   {
+      "version" : "0.0.4",
+      "queries" : [
+         `ALTER TABLE "user" ADD COLUMN auth_zero_access_token VARCHAR(255)`,
+      ]
    }
   ];
 
