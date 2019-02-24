@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Route } from "react-router-dom";
 import Sidebar from "react-sidebar";
-import { Home } from "./home";
+import { DashboardContainer } from "./home";
 import { SidebarMenu } from "./sidebar-menu";
 
 
@@ -92,7 +92,7 @@ export class InternalApp extends React.Component<IInternalAppProps, IInternalApp
      this.setState({ sidebarDocked: mql.matches, sidebarOpen: false });
    }
 
-   render() {   
+   render() {
       return <div className="app-body">
             <Sidebar
                styles={sidebarStyle}
@@ -102,7 +102,7 @@ export class InternalApp extends React.Component<IInternalAppProps, IInternalApp
                onSetOpen={this.onSetSidebarOpen}
             >
                <b>
-                  <Route exact path="/i" component={Home} />
+                  <Route exact path="/i" component={DashboardContainer} />
                </b>
             </Sidebar>
       </div>;

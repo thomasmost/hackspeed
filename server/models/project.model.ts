@@ -7,7 +7,7 @@ import ChallengeProject from "./challenge_project.model";
 import Skill from "./skill.model";
 import * as userHelper from "../helpers/user.helper";
 import * as skillHelper from "../helpers/skill.helper";
-import { Table, Model, PrimaryKey, AutoIncrement, Column, BelongsToMany, HasMany, ForeignKey, BelongsTo, DataType } from "sequelize-typescript";
+import { Table, Model, PrimaryKey, AutoIncrement, Column, BelongsToMany, HasMany, ForeignKey, BelongsTo, DataType, HasOne } from "sequelize-typescript";
 
 
 @Table({
@@ -55,6 +55,12 @@ export default class Project extends Model<Project> {
 
    @Column({type: DataType.VIRTUAL, get: Project.getRemainingEffort})
    remaining_effort: Skill[];
+
+   @ForeignKey(()=>User)
+   created_by_user_id: string;
+
+   @BelongsTo(()=>User)
+   created_by_user: User;
 
    static getRemainingEffort(this: Project) {
       return (this.required_effort || []).map((skill) => {

@@ -15,6 +15,9 @@ export default class User extends Model<User> {
    id: number;
 
    @Column
+   auth_zero_access_token: string;
+
+   @Column
    name: string;
 
    @Column

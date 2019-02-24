@@ -8,6 +8,12 @@ export const ADD_PROJECT_REQUEST = "ADD_PROJECT_REQUEST";
 export const ADD_PROJECT_SUCCESS = "ADD_PROJECT_SUCCESS";
 export const UPDATE_PROJECT_NAME = "UPDATE_PROJECT_NAME";
 export const DELETE_PROJECT_REQUEST = "DELETE_PROJECT_REQUEST";
+
+export const GET_PROJECT_LIST_FOR_USER_REQUEST = "GET_PROJECT_LIST_FOR_USER_REQUEST";
+export const GET_PROJECT_LIST_FOR_USER_SUCCESS = "GET_PROJECT_LIST_FOR_USER_SUCCESS";
+
+export const GET_PROJECT_LIST_FOR_EVENT_REQUEST = "GET_PROJECT_LIST_FOR_EVENT_REQUEST";
+export const GET_PROJECT_LIST_FOR_EVENT_SUCCESS = "GET_PROJECT_LIST_FOR_EVENT_SUCCESS";
 // export const DELETE_PROJECT_SUCCESS = "DELETE_PROJECT_SUCCESS";
 
 
@@ -20,6 +26,32 @@ export const getProjects = () => {
 export const getProjectsSuccess = (projects: any[]) => {
    return {
       type: GET_PROJECT_LIST_SUCCESS,
+      payload: projects
+   };
+};
+
+
+export const getProjectsForUser = () => {
+   return {
+      type: GET_PROJECT_LIST_FOR_USER_REQUEST
+   };
+};
+
+export const getProjectsForUserSuccess = (projects: any[]) => {
+   return {
+      type: GET_PROJECT_LIST_FOR_USER_SUCCESS,
+      payload: projects
+   };
+};
+export const getProjectsForEvent = () => {
+   return {
+      type: GET_PROJECT_LIST_FOR_EVENT_REQUEST
+   };
+};
+
+export const getProjectsForEventSuccess = (projects: any[]) => {
+   return {
+      type: GET_PROJECT_LIST_FOR_EVENT_SUCCESS,
       payload: projects
    };
 };

@@ -57,7 +57,6 @@ export default class Auth {
       this.expiresAt = expiresAt;
 
       // navigate to the home route
-      history.replace("/i");
       api.send("/api/users/ensure", {
         method: "POST",
         headers: {
@@ -68,6 +67,9 @@ export default class Auth {
            email: authResult.idTokenPayload.email,
            name: authResult.idTokenPayload.name
         })
+      })
+      .then(function() {
+         history.replace("/i");
       });
    }
 

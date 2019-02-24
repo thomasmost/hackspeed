@@ -139,6 +139,12 @@ function updateDatabase(fwVersion: string)
          `ALTER TABLE "project" ADD COLUMN views INT`,
          `ALTER TABLE "project" ADD COLUMN event_id INT`
       ]
+   },
+   {
+      "version" : "0.0.7",
+      "queries" : [
+         `ALTER TABLE "project" ADD COLUMN created_by_user_id INT`
+      ]
    }
   ];
 

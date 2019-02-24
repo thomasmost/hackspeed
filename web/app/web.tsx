@@ -19,8 +19,8 @@ const sagaMiddleware = createSagaMiddleware()
 
 import { App } from "./modules/app/app";
 // import { getCharacterList } from "./modules/character/character.actions";
-import { getProjects } from "./modules/project/project.actions";
-import { getProjectsSaga } from "./modules/project/project.saga";
+import { getProjects, getProjectsForUser } from "./modules/project/project.actions";
+import { getProjectsSaga, getProjectsForUserSaga, getProjectsForEventSaga } from "./modules/project/project.saga";
 
 // Polyfills
 var Promise = require( "promise-polyfill" );
@@ -52,12 +52,12 @@ const store = createStore(
 // sagaMiddleware.run(deleteSceneSaga);
 // sagaMiddleware.run(updateNameSaga);
 sagaMiddleware.run(getProjectsSaga);
+sagaMiddleware.run(getProjectsForUserSaga);
+sagaMiddleware.run(getProjectsForEventSaga);
 
 export abstract class WebApp {
    public static initialize ()
    {
-      // store.dispatch(getCharacterList());
-      store.dispatch(getProjects());
       console.log("rendering app");
       ReactDOM.render(
          <Provider store={store}>

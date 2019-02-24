@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Control, Form } from "react-redux-form";
 import { connect } from "react-redux";
-import { getProjects } from "./project.actions";
+import { getProjects, getProjectsForUser } from "./project.actions";
 import { api } from "web/app/api";
 
 interface IAddProjectFormProps {
@@ -67,7 +67,7 @@ const mapStateToProps = () => {
 const mapDispatchToProps = (dispatch: any) => {
    return {
       onSubmit: () => {
-         dispatch(getProjects());
+         dispatch(getProjectsForUser());
       },
    };
 };

@@ -7,6 +7,7 @@ import * as userHelper from "../helpers/user.helper";
 import * as skillHelper from "../helpers/skill.helper";
 import * as Promise from "bluebird";
 import Match from "../../shared/interfaces/match.model";
+import { isAuthenticated } from "./auth-middleware";
 
 let router = express.Router();
 //Router is namespaced in server.js to /api/sessions
@@ -20,10 +21,23 @@ export default function () {
       });
    });
 
-   router.post("/add", function (req: express.Request, res: express.Response, next: express.NextFunction) {
+   router.get("/list_my", isAuthenticated, function (req: express.Request, res: express.Response, next: express.NextFunction) {
+      Project.findAll({
+         where: {
+            created_by_user_id: req.user.id
+         }
+      })
+      .then( (projects) =>
+      {
+         res.send(projects);
+      });
+   });
+
+   router.post("/add", isAuthenticated, function (req: express.Request, res: express.Response, next: express.NextFunction) {
       let {name} = req.body;
       let project = {
-         name: name
+         name: name,
+         created_by_user_id: req.user.id
       } as Project;
       Project.create(project)
       .then((project) => {

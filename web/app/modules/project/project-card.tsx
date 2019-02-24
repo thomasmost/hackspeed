@@ -8,5 +8,10 @@ interface IProjectCardProps {
 
 export const ProjectCard = (props: IProjectCardProps) =>
    <div className={styles.container}>
-      <label>{props.project.name}</label>
+      <div>
+         <label>{props.project.name}</label>
+      </div>
+      <div>
+         <label>{props.project.created_by_user_id}</label>
+      </div>
    </div>;
