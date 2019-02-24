@@ -53,11 +53,11 @@ export default class Project extends Model<Project> {
    @HasMany(() => UserProject)
    commitments: UserProject[];
 
-   @Column({type: DataType.VIRTUAL, get: this.getRemainingEffort})
+   @Column({type: DataType.VIRTUAL, get: Project.getRemainingEffort})
    remaining_effort: Skill[];
 
-   getRemainingEffort() {
-      return this.required_effort.map((skill) => {
+   static getRemainingEffort(this: Project) {
+      return (this.required_effort || []).map((skill) => {
          const skillCopy = Object.assign(Skill.build(), skill);
          this.commitments.forEach((commitment) => {
             if (commitment.project_skill_id === skillCopy.id){
