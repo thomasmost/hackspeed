@@ -6,7 +6,7 @@ export const lock = new Auth0Lock(
    {
       auth: {
          redirect: true,
-         redirectUrl: "/auth_callback"
+         redirectUrl: "/auth_callback" 
       }
    }
 );
