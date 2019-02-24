@@ -12,7 +12,11 @@ var bourbon = require("bourbon").includePaths;
 var neat = require("bourbon-neat").includePaths;
 var stylepaths = bourbon.concat(neat);
 
-const dotenv = require('dotenv');
+
+let returnHost = process.env.RETURN_HOST;
+if (process.env.NODE_ENV !== "production") {
+   returnHost = JSON.stringify(require("dotenv").config().parsed.RETURN_HOST);
+ }
 
 let webpackBuildLogger = new WebpackBuildLogger({
    logEnabled: true, // false - default 
@@ -22,8 +26,6 @@ let webpackBuildLogger = new WebpackBuildLogger({
  });
 
 import * as webpack from "webpack";
-
-const envVars = dotenv.config().parsed;
 
 var productionConfig = {
    context: __dirname, // to automatically find tsconfig.json
@@ -42,7 +44,7 @@ var productionConfig = {
       new webpack.DefinePlugin({
          "process.env": {
             ENV: JSON.stringify(ENV),
-            RETURN_HOST: JSON.stringify(envVars.RETURN_HOST)
+            RETURN_HOST: JSON.stringify(returnHost)
          }
       }),
       new webpack.ContextReplacementPlugin(
