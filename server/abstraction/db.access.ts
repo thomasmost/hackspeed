@@ -132,6 +132,13 @@ function updateDatabase(fwVersion: string)
          `ALTER TABLE "user" ADD COLUMN twitter_handle VARCHAR(100)`,
          `ALTER TABLE "user" ADD COLUMN hours_sleep SMALLINT`,
       ]
+   },
+   {
+      "version" : "0.0.6",
+      "queries" : [
+         `ALTER TABLE "project" ADD COLUMN views INT`,
+         `ALTER TABLE "project" ADD COLUMN event_id INT`
+      ]
    }
   ];
 

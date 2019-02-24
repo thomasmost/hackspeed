@@ -18,7 +18,6 @@ VALUES
  
 CREATE TABLE "user" (
    id SERIAL PRIMARY KEY,
-   name varchar(128) NOT NULL,
    profile_photo_url VARCHAR(255),
    created timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
    updated timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
