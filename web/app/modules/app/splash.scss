@@ -3,6 +3,9 @@
 :local(.container) {
    margin-top: 100px;
    width: 100%;
+   svg {
+      max-width: 400px;
+   }
    div {
       font-size: 2rem;
       margin-bottom: 4rem;
