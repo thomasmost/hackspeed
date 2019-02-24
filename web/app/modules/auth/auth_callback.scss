@@ -1,0 +1,12 @@
+@import '../../sass/base/colors';
+
+:local(.container) {
+   margin-top: 100px;
+   width: 100%;
+   div {
+      font-size: 2rem;
+      margin-bottom: 4rem;
+      text-align: center;
+      color: $hackspeed_blue;
+   }
+}

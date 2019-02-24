@@ -1,7 +1,7 @@
 @import '../../sass/base/colors';
 
 :local(.container) {
-   margin-top: 100px;
+   margin-top: 2rem;
    width: 100%;
    svg {
       max-width: 400px;
@@ -11,6 +11,9 @@
       margin-bottom: 4rem;
       text-align: center;
       color: $hackspeed_blue;
+      &:first-child {
+         margin-bottom: 2rem;
+      }
    }
    button {
       text-align: center;

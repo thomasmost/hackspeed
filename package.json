@@ -21,10 +21,10 @@
   },
   "dependencies": {
     "@types/auth0-js": "^8.11.11",
-    "@types/auth0-lock": "^11.4.11",
+    "@types/auth0-lock": "^10.24.3",
     "@types/react-sidebar": "^3.0.0",
     "auth0-js": "^9.10.0",
-    "auth0-lock": "^11.14.0",
+    "auth0-lock": "^10.24.3",
     "body-parser": "^1.18.3",
     "bourbon": "^4.3.4",
     "bourbon-neat": "^2.1.0",
