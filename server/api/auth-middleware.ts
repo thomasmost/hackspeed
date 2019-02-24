@@ -6,7 +6,7 @@ import * as passport from "passport";
 import * as jwt from "jsonwebtoken";
 
 import Env from "../env";
-import { IUser } from "../../shared/interfaces/user";
+import { IUser } from "shared/interfaces/user";
 
 const JWT_SECRET = Env.JWT_SECRET;
 

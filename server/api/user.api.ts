@@ -1,12 +1,12 @@
 import * as express from "express";
 import Project from "../models/project.model";
-import User from "../models/user.model";
-import Skill from "../models/skill.model";
+import User from "server/models/user.model";
+import Skill from "server/models/skill.model";
 import Event from "../models/event.model";
 import * as skillHelper from "../helpers/skill.helper";
 import * as userHelper from "../helpers/user.helper";
 import * as Promise from "bluebird";
-import Match from "../../shared/interfaces/match.model";
+import Match from "shared/interfaces/match.model";
 
 let router = express.Router();
 //Router is namespaced in server.js to /api/sessions

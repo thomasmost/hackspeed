@@ -1,7 +1,7 @@
-import User from "../models/user.model";
+import User from "server/models/user.model";
 import Event from "../models/event.model";
 // import * as Promise from "bluebird";
-import UserProject from "../models/user_project.model";
+import UserProject from "server/models/user_project.model";
 
 export const workingHoursForEvent = (user: User, event: Event) => {
    const nights = event.working_hours/24;

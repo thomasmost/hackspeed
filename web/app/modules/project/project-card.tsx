@@ -1,5 +1,5 @@
 import * as React from "react";
-import Project from "../models/project.model";
+import Project from "server/models/project.model";
 const styles = require("./project-card.scss");
 
 interface IProjectCardProps {

@@ -1,6 +1,6 @@
 import { call, put, takeEvery, takeLatest } from "redux-saga/effects"
 import { getProjectsSuccess, addProjectSuccess, ADD_PROJECT_REQUEST, UPDATE_PROJECT_NAME, DELETE_PROJECT_REQUEST, GET_PROJECT_LIST_REQUEST } from "./project.actions";
-import Project from "../models/project.model";
+import Project from "server/models/project.model";
 
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function* fetchList() {
