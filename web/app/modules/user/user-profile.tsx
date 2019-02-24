@@ -26,7 +26,7 @@ class UserProfile extends React.Component<UserProfileProps, UserProfileState> {
 
    state = {
       editing: false,
-      skill: null as any
+      skill: {} as any
    }
    renderAddSkillForm() {
       const {skill} = this.state;
@@ -94,7 +94,7 @@ class UserProfile extends React.Component<UserProfileProps, UserProfileState> {
             <h2>{user.name}</h2><img src={user.email}></img>
             {viewingUserId === user.id && <a onClick={() => this.setState({editing: !editing})}>Edit</a>}
             <h3>Skills:</h3>
-            {user.skills.map(this.renderSkill)}
+            {user.skills && user.skills.map(this.renderSkill)}
          </div>
       );
    }
