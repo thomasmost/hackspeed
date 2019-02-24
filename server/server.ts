@@ -58,8 +58,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //configure Passport
-import passportConfig from "./abstraction/passport.abst";
-passportConfig(passport);
+// import passportConfig from "./abstraction/passport.abst";
+// passportConfig(passport);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -85,12 +85,12 @@ app.use(domainMiddleware);
 //requiring sessions as a function so that we can pass the passport object as a param
 import apiProjects from "./api/projects.api";
 // import apiAuth from "./api/auth.api";
-import apiSessions from "./api/sessions.api";
+// import apiSessions from "./api/sessions.api";
 import apiUsers from "./api/user.api";
 
 app.use("/api/projects", apiProjects());
 // app.use("/api/auth",          apiAuth());
-app.use("/api/sessions",      apiSessions(passport));
+// app.use("/api/sessions",      apiSessions(passport));
 app.use("/api/users",         apiUsers());
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
