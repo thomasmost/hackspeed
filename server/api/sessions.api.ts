@@ -6,7 +6,7 @@ import * as express from "express";
 let router = express.Router();
 
 import { isAuthenticated, sendUserTokenPackage } from "./auth-middleware";
-import { IUser } from "shared/interfaces/user";
+import { IUser } from "../../shared/interfaces/user";
 
 //Router is namespaced in server.js to /api/sessions
 export default function (passport: any) {

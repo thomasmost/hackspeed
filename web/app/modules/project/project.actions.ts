@@ -2,7 +2,7 @@
 export const GET_PROJECT_LIST_REQUEST = "GET_PROJECT_LIST_REQUEST";
 export const GET_PROJECT_LIST_FAILURE = "GET_PROJECT_LIST_FAILURE";
 export const GET_PROJECT_LIST_SUCCESS = "GET_PROJECT_LIST_SUCCESS";
-import Project from "server/models/project.model";
+import Project from "../models/project.model";
 
 export const ADD_PROJECT_REQUEST = "ADD_PROJECT_REQUEST";
 export const ADD_PROJECT_SUCCESS = "ADD_PROJECT_SUCCESS";

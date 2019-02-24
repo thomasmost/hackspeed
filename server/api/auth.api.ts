@@ -5,7 +5,7 @@ import * as express from "express";
 let router = express.Router();
 
 import { isAuthenticated } from "./auth-middleware";
-import { IUser } from "shared/interfaces/user";
+import { IUser } from "../../shared/interfaces/user";
 
 // //Router is namespaced in server.js to /api/auth
 
