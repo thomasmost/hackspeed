@@ -35,9 +35,12 @@ export default function () {
       })
       .then((user) => {
          if (!user) {
+            const randomId = Math.random().toString(36).substring(7)
             return User.create({
                email: req.body.email,
-               auth_zero_access_token: req.token
+               name: req.body.name || randomId,
+               auth_zero_access_token: req.token,
+               handle: randomId
             });
          }
          return user.update({

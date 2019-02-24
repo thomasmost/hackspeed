@@ -21,6 +21,9 @@ export default class User extends Model<User> {
    email: string;
 
    @Column
+   handle: string;
+
+   @Column
    phone_number: number;
 
    @Column

@@ -65,7 +65,8 @@ export default class Auth {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-           email: authResult.idTokenPayload.email
+           email: authResult.idTokenPayload.email,
+           name: authResult.idTokenPayload.name
         })
       });
    }
